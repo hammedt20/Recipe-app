@@ -19,11 +19,9 @@ const Recipe = (props) => {
     )
   })
 
-  console.log(props)
-
   return(
     <div className='w-11/12 mx-auto text-black p-4 border border-bliss rounded-lg'>
-      <img src={props.recipe.image} alt='' className='rounded-lg w-full' />
+      <img src={props.recipe.image} alt='' className=' w-full' />
       <div className='flex justify-between items-center py-8'>
         <p className='text-lg text-bold'>{props.recipe.label}</p>
         <button className='w-max px-4 py-2 bg-green-500 text-white' onClick={handleRecipe}>{!showRecipe ? 'View Recipe' : 'Hide Recipe'}</button>
@@ -55,29 +53,10 @@ const Foodgallery = () => {
 
   useEffect(function(){
    const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${search.food}&app_id=2177a3b7&app_key=c144aed72930385e78d1d2084ab569f2`
-    // const URL = `https://imdb-api.com/en/API/SearchSeries/k_51zm1qt5/${search.food}`
-    // async function getApi (){
-    //   var res = await fetch(URL)
-    //   var data = await res.json()
-
-    //   console.log(data)
-
-    //   setSearch(prevSearch => {
-    //     const dataHits = data.hits
-    //     return (
-    //       {
-    //         ...prevSearch,
-    //         dataHits
-    //       }
-    //     )
-    //   })
-    // }
-
-    // getApi()
+    
     fetch(URL)
     .then(res => res.json())
     .then(data => setSearch(prevSearch => {
-      // const dataHits = data.hits
       return(
         {
           ...prevSearch,
@@ -86,8 +65,6 @@ const Foodgallery = () => {
       )
     }))
   }, [search.food])
-
-  console.log(search)
 
   const searchHits = search.dataHits
 
@@ -102,8 +79,8 @@ const Foodgallery = () => {
   return (
     <div className='mb-16'>
       <h1 className='mt-72 text-center text-5xl header-text font-bold'>Food Gallery</h1>
-      <p className='text-center text-gray-400 mt-8'>In quo ignorare vos arbitrer, sed ipsius honestatis decore laudandis</p>
-      <div className='flex items-center w-1/3 mx-auto my-24 p-4 border border-black rounded-full'>
+      <p className='text-center mx-8 text-gray-400 mt-8'>In quo ignorare vos arbitrer, sed ipsius honestatis decore laudandis</p>
+      <div className='flex items-center w-2/3 md:w-1/3 mx-auto my-24 p-4 border border-black rounded-full'>
         <input
           type= 'text'
           placeholder= 'Search for food'
@@ -116,7 +93,7 @@ const Foodgallery = () => {
         color='#000'
         />
       </div>
-      <div className='grid grid-cols-3 mx-12 gap-y-8'>
+      <div className='md:grid-cols-2 grid grid-cols-1 lg:grid-cols-3 mx-12 gap-y-8'>
         {recipeApi}
       </div>
     </div>
