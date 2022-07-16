@@ -11,7 +11,7 @@ function Navbar(){
   }
 
   return (
-    <nav className='flex h-28 items-center relative justify-between px-12'>
+    <nav className='flex h-28 w-full fixed top-0 right-0 bg-white items-center justify-between px-12'>
       <h2 className='text-3xl font-bold tracking-wider italic'>CHOPILOS</h2>
       
         <ul className={grid ? 'show-links' : 'nav-links' }>
@@ -29,7 +29,7 @@ function Navbar(){
 
 const HeaderBody = () => {
   return(
-    <div className='flex-col gap-y-12 m-12 mb-16 lg:flex-row flex lg:gap-x-12 justify-between'>
+    <div className='flex-col gap-y-12 m-12 mt-48 mb-16 lg:flex-row flex lg:gap-x-12 justify-between'>
       <div className='order-2 lg:order-first flex flex-col gap-y-8'>
         <p className='font-medium uppercase tracking-wide text-green-500'>Welcome to our</p>
         <h1 className='text-5xl xl:text-8xl font-bold leading-tight header-text'>
